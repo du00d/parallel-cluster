@@ -20,10 +20,10 @@ int main(int argc, char *argv[]){
     int istart, istop;
     double partialpi, recvpi;
 
-    
+    MPI_Comm comm = MPI_COMM_WORLD; 
     MPI_Init(&argc, &argv);
-    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-    MPI_Comm_size(MPI_COMM_WORLD, &size);
+    MPI_Comm_rank(comm, &rank);
+    MPI_Comm_size(comm, &size);
 
     if(rank == 0)
         cout <<  size << " Processes\n", t_start = MPI_Wtime();
@@ -47,12 +47,12 @@ int main(int argc, char *argv[]){
         pi = partialpi;
         for(int source = 1 ;  source < size ; source++){
             MPI_Status status;
-            MPI_Recv(&recvpi, 1, MPI_DOUBLE, MPI_ANY_SOURCE, 0, MPI_COMM_WORLD, &status);
+            MPI_Recv(&recvpi, 1, MPI_DOUBLE, MPI_ANY_SOURCE, 0, comm, &status);
             cout << "rank 0 RECEIVES from rank " << status.MPI_SOURCE << "\n";
             pi = pi + recvpi;
         }
     }else{
-        MPI_Ssend(&partialpi, 1, MPI_DOUBLE, 0, 0, MPI_COMM_WORLD);
+        MPI_Ssend(&partialpi, 1, MPI_DOUBLE, 0, 0, comm);
     }
 
 
