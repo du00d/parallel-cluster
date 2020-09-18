@@ -1,7 +1,7 @@
 # parallel-cluster
 Using openmpi to speed up task on a cluster
 
-This repository stores OpenMPI implementations, will add more
+This repository stores OpenMPI implementations, main purpose is a convieniet way to test if the clusters are deployed correctly. will add more
 #### Pi Calculator
 uses leibniz series to sum up the work done by each process.
 
