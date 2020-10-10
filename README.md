@@ -7,6 +7,6 @@ uses leibniz series to sum up the work done by each process.
 
 [code](https://github.com/du00d/parallel-cluster/blob/master/picluster.cpp)
 
-Compile with ./mpic++ picluster.cpp -o picluster
+Compile with mpic++ picluster.cpp -o picluster
 
 Run with ./mpirun -np 2 ./picluster
