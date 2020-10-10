@@ -9,4 +9,4 @@ uses leibniz series to sum up the work done by each process.
 
 Compile with mpic++ picluster.cpp -o picluster
 
-Run with ./mpirun -np 2 ./picluster
+Run with mpirun -np 2 ./picluster
